@@ -13,8 +13,8 @@ CND_BUILDDIR=build
 CND_DLIB_EXT=so
 NBTMPDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}/tmp-packaging
 TMPDIRNAME=tmp-packaging
-OUTPUT_PATH=${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/luhnalgorithm
-OUTPUT_BASENAME=luhnalgorithm
+OUTPUT_PATH=${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/luhn_algorithm
+OUTPUT_BASENAME=luhn_algorithm
 PACKAGE_TOP_DIR=luhnalgorithm/
 
 # Functions

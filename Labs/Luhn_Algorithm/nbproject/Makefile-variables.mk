@@ -9,16 +9,16 @@ CND_DISTDIR=dist
 # Debug configuration
 CND_PLATFORM_Debug=GNU-Linux
 CND_ARTIFACT_DIR_Debug=dist/Debug/GNU-Linux
-CND_ARTIFACT_NAME_Debug=luhnalgorithm
-CND_ARTIFACT_PATH_Debug=dist/Debug/GNU-Linux/luhnalgorithm
+CND_ARTIFACT_NAME_Debug=luhn_algorithm
+CND_ARTIFACT_PATH_Debug=dist/Debug/GNU-Linux/luhn_algorithm
 CND_PACKAGE_DIR_Debug=dist/Debug/GNU-Linux/package
 CND_PACKAGE_NAME_Debug=luhnalgorithm.tar
 CND_PACKAGE_PATH_Debug=dist/Debug/GNU-Linux/package/luhnalgorithm.tar
 # Release configuration
 CND_PLATFORM_Release=GNU-Linux
 CND_ARTIFACT_DIR_Release=dist/Release/GNU-Linux
-CND_ARTIFACT_NAME_Release=luhnalgorithm
-CND_ARTIFACT_PATH_Release=dist/Release/GNU-Linux/luhnalgorithm
+CND_ARTIFACT_NAME_Release=luhn_algorithm
+CND_ARTIFACT_PATH_Release=dist/Release/GNU-Linux/luhn_algorithm
 CND_PACKAGE_DIR_Release=dist/Release/GNU-Linux/package
 CND_PACKAGE_NAME_Release=luhnalgorithm.tar
 CND_PACKAGE_PATH_Release=dist/Release/GNU-Linux/package/luhnalgorithm.tar
