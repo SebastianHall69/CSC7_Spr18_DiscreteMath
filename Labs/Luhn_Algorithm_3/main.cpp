@@ -1,14 +1,14 @@
 /* 
  * File:   main.cpp
  * Author: Sebastian Hall
- *
- * Created on March 4, 2018, 8:19 PM
+ * Created on March 16, 2018, 8:19 PM
+ * Purpose: Luhn Algorithm 3 With Transposing
  */
 
 
 //System Libraries
-#include <iostream>
-#include <cstdlib>
+#include <iostream> //Input/Output
+#include <cstdlib>  //Time,Rand,Srand
 using namespace std;
 
 
@@ -21,7 +21,8 @@ enum crdCard {AMERICAN_EXPRESS, VISA, MASTERCARD,ALL};//Enum For Card Types
 //Function Prototypes
 char *genCard(crdCard);//Generate Card Number, Returns Pointer To That Card
 void flipDig(char *);//Flip A Random Card Digit
-bool luhn(char *);//Checks A Cards Validity, Returns True For Valid 
+bool luhn(char *);//Checks A Cards Validity, Returns True For Valid
+void trans(char *);//Transposes Two Random Card Numbers
 
 
 
@@ -33,7 +34,7 @@ int main(){
     
     
     //Declare And Initialize Variables
-    const int LOOPS=10000;//Number Of Times It Will Loop
+    const int LOOPS=10;//Number Of Times It Will Loop
     crdCard choice;//Enum That Decides Card Made
     char *card=NULL;//Pointer To Array Of Card Numbers
     int valid=0,invalid=0;//Counts The Number Of Valid/Invalid Cards
@@ -42,13 +43,28 @@ int main(){
     
     //Generate And Test Each Credit Card
     for(int i=0;i<LOOPS;i++){//For The Specified Number Of Loops
+        
+        
+        //Create A Valid Card And Flip A Value
         choice=static_cast<crdCard>(rand()%4);//Give A Random Choice Each Loop
+        choice=VISA;
         card=genCard(choice);//Generate The Card With An Enum Specifying Type
-        flipDig(card);      //Flip One Random Digit In The Card
+    //    flipDig(card);      //Flip One Random Digit In The Card
+        cout<<card<<endl;
+        
+        //Transpose Numbers
+    //    trans(card);//Transpose First Time
+    //    trans(card);//Transpose Second Time
+        
+        
+        //Test For Card Validity
         if(luhn(card))      //If The Card Number Is Still Valid
             valid++;        //Increment Valid Cards Counter
         else                //Else
             invalid++;      //Increment Invalid Cards Counter
+        
+        
+        //Delete Dynamically Allocated Card
         delete [] card;     //Delete Dynamically Allocated Data
     }
     
@@ -117,7 +133,6 @@ char *genCard(crdCard choice){
             //Set Length For Visa Cards
             size=(rand()%3)*3+13;//Length Of Visa Can Be 13,16,19
             
-            
             //Dynamically Allocate char Array For Card
             card=new char[size+1];//For Size Of Card Plus Null Terminator
            
@@ -130,6 +145,8 @@ char *genCard(crdCard choice){
             for(;index<size;index++)//For The Size Of The Array Minus 1
                 card[index]=static_cast<char>(rand()%10+48);//Fill With Num
             card[index]='\0';//End With Null Terminator
+            
+            cout<<"Visa: ";
             
         }break;
         
@@ -287,4 +304,30 @@ bool luhn(char *card){
     else            //Else
         return false;//Return False For An Invalid Credit Card Number
 
+}
+
+//*****************************************
+//                                        *
+//  Transposition Function                *
+//                                        *
+//*****************************************
+
+
+void trans(char *card){
+    //Declare And Initialize Variables
+    short size=0,elem1=0,elem2=0;//Size Of The Card, Element To Be Switched
+    char temp;//Temporary Variable To Transpose Numbers
+    
+    
+    //Get Size Of The Card
+    while(card[size]!='\0')
+        size++;  
+    
+    
+    //Transpose The Card Values
+    elem1=rand()%size;//Get Random Element To Transpose
+    elem2=rand()%size;//Get Random Element To Transpose
+    temp=card[elem1];//Store Random In A Temporary Value
+    card[elem1]=card[elem2];//Store Elem1 In Elem2
+    card[elem2]=temp;//Store Temp In The Second Element
 }

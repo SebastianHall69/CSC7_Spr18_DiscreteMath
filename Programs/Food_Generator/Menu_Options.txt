@@ -1,0 +1,7 @@
+	Menu Choices
+1.) Breakfast Foods
+2.) Lunch And Dinner Foods
+3.) Desserts
+4.) Snacks
+5.) Add An Item
+6.) Quit

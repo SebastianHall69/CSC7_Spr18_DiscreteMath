@@ -33,7 +33,7 @@ int main(){
     
     
     //Declare And Initialize Variables
-    const int LOOPS=10000;//Number Of Times It Will Loop
+    const int LOOPS=100;//Number Of Times It Will Loop
     crdCard choice;//Enum That Decides Card Made
     char *card=NULL;//Pointer To Array Of Card Numbers
     int valid=0,invalid=0;//Counts The Number Of Valid/Invalid Cards
@@ -45,8 +45,10 @@ int main(){
         choice=static_cast<crdCard>(rand()%4);//Give A Random Choice Each Loop
         card=genCard(choice);//Generate The Card With An Enum Specifying Type
         flipDig(card);      //Flip One Random Digit In The Card
-        if(luhn(card))      //If The Card Number Is Still Valid
-            valid++;        //Increment Valid Cards Counter
+        if(luhn(card)){      //If The Card Number Is Still Valid
+            valid++;
+            cout<<"Valid: "<<card<<endl;
+        }//Increment Valid Cards Counter
         else                //Else
             invalid++;      //Increment Invalid Cards Counter
         delete [] card;     //Delete Dynamically Allocated Data
