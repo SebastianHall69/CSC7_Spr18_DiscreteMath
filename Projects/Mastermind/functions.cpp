@@ -126,72 +126,45 @@ void setWin(std::string key []){
 
 void chckAns(std::string key [],std::string row [],short &rghtClr,short &rghtPos){
     //Declare And Initialize Variables
-    bool kRed=false,//Yes/No Red Color Is Present In Key
-         kBlu=false,//Yes/No Blue Color Is Present In Key
-         kYel=false,//Yes/No Yellow Color Is Present In Key
-         kGrn=false,//Yes/No Greed Color Is Present In Key
-         kPrp=false,//Yes/No Purple Color Is Present In Key
-         kOrg=false,//Yes/No Orange Color Is Present In Key
-         rRed=false,//Yes/No Red Color Is Present In Row
-         rBlu=false,//Yes/No Blue Color Is Present In Row
-         rYel=false,//Yes/No Yellow Color Is Present In Row
-         rGrn=false,//Yes/No Greed Color Is Present In Row
-         rPrp=false,//Yes/No Purple Color Is Present In Row
-         rOrg=false;//Yes/No Orange Color Is Present In Row
+    enum Colors {RED,BLU,YEL,GRN,PRP,ORG};//Enumerator For Colors
+    short kColor [6],//Holds The Active Number Of Colors In Key
+          rColor [6];//Holds The Active Number Of Colors In Current Row
+    
+    
+    
+    
+    
     short const COLS=4;//The Number Of Columns In The Game, Constant
     rghtClr=0;//Reset Value For Each Round
     rghtPos=0;//Reset Value For Each Round
     
-    //Check If Any Are In The Right Position
-    for(int i=0;i<COLS;i++)//For Each Circle In The Row
-        if(row[i]==key[i])//If They Have The Same Color Value
-            rghtPos++;//Increment The Correct Position Variable
+    //Set All Color Values Into Arrays And Right Color/Pos Variables
+    for(int i=0;i<COLS;i++){
+        //Fill Right Pos Variable
+        if(row[i]==key[i])//If The Value In Key Is Equivalent To Row
+            rghtPos++;//Right Position Is Incremented
+        
+        
+        
+        
+        
+        
+        
+    }
+    
+    
     
     //Check Which Colors Are Present In The Answer Key
-    for(int i=0;i<COLS;i++){//For Each Circle In The Row
-        if(key[i]=="Red")//If Red Is Present
-            kRed=true;//Mark Red Flag True
-        else if(key[i]=="Blu")//If Blue Is Present
-            kBlu=true;//Mark Blue Flag True
-        else if(key[i]=="Yel")//If Yellow Is Present
-            kYel=true;//Mark Yellow Flag True
-        else if(key[i]=="Grn")//If Green Is Present
-            kGrn=true;//Mark Green Flag True
-        else if(key[i]=="Prp")//If Purple Is Present
-            kPrp=true;//Mark Purple Flag True
-        else if(key[i]=="Org")//If Orange Is Present
-            kOrg=true;//Mark Orange Flag True
-    }
+    
+        
+    
     
     //Check Which Colors Are Present In The Current Row
-    for(int i=0;i<COLS;i++){//For Each Circle In The Row
-        if(row[i]=="Red")//If Red Is Present
-            rRed=true;//Mark Red Flag True
-        else if(row[i]=="Blu")//If Blue Is Present
-            rBlu=true;//Mark Blue Flag True
-        else if(row[i]=="Yel")//If Yellow Is Present
-            rYel=true;//Mark Yellow Flag True
-        else if(row[i]=="Grn")//If Green Is Present
-            rGrn=true;//Mark Green Flag True
-        else if(row[i]=="Prp")//If Purple Is Present
-            rPrp=true;//Mark Purple Flag True
-        else if(row[i]=="Org")//If Orange Is Present
-            rOrg=true;//Mark Orange Flag True
-    }
+    
+    
     
     //Check If Any Of The Correct Colors Are Matching And Increment If So
-    if(kRed&&rRed)//If Both Red Flags Are True
-        rghtClr++;//Increment The Right Color Variable
-    if(kBlu&&rBlu)//If Both Blue Flags Are True
-        rghtClr++;//Increment The Right Color Variable
-    if(kYel&&rYel)//If Both Yellow Flags Are True
-        rghtClr++;//Increment The Right Color Variable
-    if(kGrn&&rGrn)//If Both Green Flags Are True
-        rghtClr++;//Increment The Right Color Variable
-    if(kPrp&&rPrp)//If Both Purple Flags Are True
-        rghtClr++;//Increment The Right Color Variable
-    if(kOrg&&rOrg)//If Both Orange Flags Are True
-        rghtClr++;//Increment The Right Color Variable
+    
     
     //Subtract Correct Position From Correct Color For Right Answer
     rghtClr-=rghtPos;
